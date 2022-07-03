@@ -6,14 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { ChakraProvider } from '@chakra-ui/react'
 import { store } from './store';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-    <ChakraProvider>
+   <BrowserRouter>
+   <ChakraProvider>
     <App />
     </ChakraProvider>
+   </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );

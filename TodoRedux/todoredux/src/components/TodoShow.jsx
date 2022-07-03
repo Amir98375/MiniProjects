@@ -4,8 +4,12 @@ import { deleteData, fetchData } from '../Redux/Action';
 import './TodoShow.css'
 import {AiFillDelete} from 'react-icons/ai'
 import {BiEdit} from 'react-icons/bi'
+import { useState } from 'react';
+import { TodoEdit } from './TodoEdit';
+import { useNavigate } from 'react-router-dom';
 
 export const ShowData=()=>{
+    const navigate=useNavigate()
     const dispatch=useDispatch()
     const data=useSelector((state)=>state.userReducer.data)
     useEffect(()=>{
@@ -16,11 +20,13 @@ dispatch(fetchData())
     const handleDelete=(id)=>{
            dispatch(deleteData(id))
         // dispatch(fetchData())
+        
 
     }
     
     return(
         <div>
+            
             <table className='main'>
                 <thead className='tablerow'> 
                   <td>First Name</td>
@@ -38,7 +44,7 @@ dispatch(fetchData())
                         <td>{el.email}</td>
                         <td>{el.mobile}</td>
                        <td className='button'> <button className='button' onClick={()=>handleDelete(el.id)}><AiFillDelete/></button></td>
-                        <td className='button'><button className='button'><BiEdit/></button></td>
+                        <td className='button'><button className='button' onClick={()=>navigate(`/edit/${el.id}`)}><BiEdit/></button></td>
                     </tr>
                 )}
             </table>

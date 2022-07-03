@@ -32,6 +32,7 @@ export const userReducer=(state=initialState,action)=>{
                 ...state,
                 laoding:true,
                 Error:false
+                
             }
          case types.delete_data_Success:
             return{

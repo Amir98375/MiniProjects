@@ -1,0 +1,98 @@
+{
+  "Recent-Jobs": [
+    {
+      "id": 1,
+      "title": "talwaind",
+      "post": "Lead Producer",
+      "salary":"50k-60k",
+      "type":"Fulltime"
+    },
+    {
+      "id": 2,
+      "title": "talwaind",
+      "post": "Lead Producer MAnager",
+      "salary":"40k-50k",
+      "type":"Fulltime"
+    },
+    {
+      "id": 3,
+      "title": "javascript",
+      "post": "Developer",
+      "salary":"50k-60k",
+      "type":"Fulltime"
+    },
+    {
+      "id": 4,
+      "title": "Node.js",
+      "post": "Backend Engineer",
+      "salary":"50k-60k",
+      "type":"Fulltime"
+    },
+    {
+      "id": 5,
+      "title": "React",
+      "post": "Frontend Engineer",
+      "salary":"50k-60k",
+      "type":"Fulltime"
+    },
+    {
+      "id": 5,
+      "title": "Php",
+      "post": "Full stack developer",
+      "salary":"50k-70k",
+      "type":"Fulltime"
+    }
+  ],
+  "comments": [
+    {
+      "company": "capgemni",
+      "title": "React",
+      "post": "Frontend Engineer",
+      "salary":"50k-60k",
+      "type":"Fulltime"
+    },
+    {
+      "company": "tata consultancy",
+      "title": "php",
+      "post": "Frontend Engineer",
+      "salary":"50k-60k",
+      "type":"Fulltime"
+    },
+    {
+      "company": "google",
+      "title": "React",
+      "post": "Frontend intern ship",
+      "salary":"30k-40k",
+      "type":"Partime"
+      
+    },
+    {
+      "company": "capgemni",
+      "title": "javascript and nodejs",
+      "post": "full stack Engineer",
+      "salary":"50k-60k",
+      "type":"Fulltime"
+    },
+    {
+      "company": "capgemni",
+      "title": "React",
+      "post": "Frontend Engineer",
+      "salary":"50k-60k",
+      "type":"Fulltime"
+    },{
+      "company": "capgemni",
+      "title": "React",
+      "post": "Frontend Engineer",
+      "salary":"50k-60k",
+      "type":"Fulltime"
+    },
+    {
+      "company": "capgemni",
+      "title": "React",
+      "post": "Frontend Engineer",
+      "salary":"50k-60k",
+      "type":"Fulltime"
+    }
+  ]
+ 
+}

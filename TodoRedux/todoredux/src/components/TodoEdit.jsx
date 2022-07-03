@@ -14,36 +14,51 @@ import {
     useColorModeValue,
     Link,
   } from '@chakra-ui/react';
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { AddData, fetchData } from '../Redux/Action';
+import { useNavigate, useParams } from 'react-router-dom';
+import { AddData, fetchData, updateteData } from '../Redux/Action';
 
 export const TodoEdit=()=>{
-  const id=useParams()
+  const {id}=useParams()
   const [first_name,setfirst_name]=useState("")
   const [last_name,setlast_name]=useState("")
   const [email,setemail]=useState("")
   const [mobile,setmobile]=useState("")
+  const navigate = useNavigate();
   console.log(id)
-  // console.log(first_name)
-  // console.log(last_name)
-  // console.log(email)
-  // console.log(mobile)
-//   const dispatch=useDispatch()
+  console.log(first_name)
+  console.log(last_name)
+  console.log(email)
+  console.log(mobile)
+  const dispatch=useDispatch()
+  useEffect(()=>{
+      axios.get(`http://localhost:8080/data/${id}`)
+      .then((res)=>{
+        setfirst_name(res.data.first_name);
+        setlast_name(res.data.last_name);
+        setemail(res.data.email);
+        setmobile(res.data.mobile);
+    })
 
-//   const handleAdd=()=>{
-//    const addData={
-//     first_name:first_name,
-//     last_name:last_name,
-//     email:email,
-//     mobile:mobile
-//    }
+    
+  },[])
+  const handleEdit=()=>{
+   const editData={
+    first_name:first_name,
+    last_name:last_name,
+    email:email,
+    mobile:mobile
+   }
    
-//       dispatch(AddData(addData))
-//       dispatch(fetchData())
+      dispatch(updateteData(editData,id))
+      dispatch(fetchData())
+
+      navigate('/show')
       
-//   }
+      
+  }
  
     return(
      <Box>
@@ -71,24 +86,24 @@ export const TodoEdit=()=>{
               <Box>
                 <FormControl id="firstName">
                   <FormLabel>First Name</FormLabel>
-                  <Input type="text" onChange={(e)=>setfirst_name(e.target.value)}/>
+                  <Input type="text"  value={first_name} onChange={(e)=>setfirst_name(e.target.value)}/>
                 </FormControl>
               </Box>
               <Box>
                 <FormControl id="lastName">
                   <FormLabel>Last Name</FormLabel>
-                  <Input type="text" onChange={(e)=>setlast_name(e.target.value)} />
+                  <Input type="text" value={last_name} onChange={(e)=>setlast_name(e.target.value)} />
                 </FormControl>
               </Box>
             </HStack>
             <FormControl id="email" >
               <FormLabel>Email address</FormLabel>
-              <Input type="email" onChange={(e)=>setemail(e.target.value)} />
+              <Input type="email" value={email} onChange={(e)=>setemail(e.target.value)} />
             </FormControl>
             <FormControl >
               <FormLabel>Mobile</FormLabel>
               <InputGroup>
-                <Input type="number" onChange={(e)=>setmobile(e.target.value)} />
+                <Input type="number" value={mobile} onChange={(e)=>setmobile(e.target.value)} />
                 <InputRightElement h={'full'}>
                   <Button
                     variant={'ghost'}
@@ -107,6 +122,7 @@ export const TodoEdit=()=>{
                 _hover={{
                   bg: 'blue.500',
                 }} 
+                onClick={handleEdit}
                 >
                 Edit Details
               </Button>

@@ -16,6 +16,7 @@ import {
   } from '@chakra-ui/react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { AddData, fetchData } from '../Redux/Action';
 
 export const TodoInput=()=>{
@@ -23,6 +24,8 @@ export const TodoInput=()=>{
   const [last_name,setlast_name]=useState("")
   const [email,setemail]=useState("")
   const [mobile,setmobile]=useState("")
+  const navigate = useNavigate();
+
   // console.log(first_name)
   // console.log(last_name)
   // console.log(email)
@@ -39,6 +42,7 @@ export const TodoInput=()=>{
    
       dispatch(AddData(addData))
       dispatch(fetchData())
+      navigate("/show")
       
   }
  

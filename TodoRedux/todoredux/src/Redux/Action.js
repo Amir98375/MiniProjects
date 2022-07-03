@@ -90,9 +90,11 @@ const AddDataRequest=(payload)=>{
  }
 
 
+
+
  
  export const AddData=(payload)=>(dispatch)=>{
-    dispatch(AddDataRequest())
+    dispatch(UpdateDataRequest)
     axios.post(`http://localhost:8080/data`,payload)
     .then((res)=>{
         dispatch(AddDataSuccess())
@@ -100,4 +102,41 @@ const AddDataRequest=(payload)=>{
         // console.log(res)
     })
     .catch((err)=>dispatch(AddDataFailure(err)))
+}
+
+
+//update crud
+const UpdateDataRequest=(payload)=>{
+    return{
+      type:types.Update_data_Request,
+      payload
+    }
+ }
+ 
+ const UpdateDataSuccess=(payload)=>{
+     return{
+ type:types.Update_data_Success,
+ payload
+     }
+ }
+ 
+ const UpdateDataFailure=(payload)=>{
+     return{
+         type:types.Update_data_Failure,
+         payload
+     }
+ }
+
+
+
+export const updateteData=(payload,id)=>(dispatch)=>{
+    console.log('actions',payload,id)
+    dispatch(UpdateDataRequest())
+    axios.put(`http://localhost:8080/data/${id}`,{...payload})
+    .then((res)=>{
+        dispatch(UpdateDataSuccess())
+        dispatch(fetchData())
+        // console.log(res)
+    })
+    .catch((err)=>dispatch(UpdateDataFailure(err)))
 }

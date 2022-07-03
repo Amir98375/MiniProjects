@@ -63,7 +63,25 @@ export const userReducer=(state=initialState,action)=>{
                     ...state,
                     laoding:false,
                     Error:true
-                }             
+                }
+                case types.Update_data_Request:
+                    return{
+                        ...state,
+                        laoding:true,
+                        Error:false
+                        
+                    }
+                 case types.Update_data_Success:
+                    return{
+                        ...state,
+                        laoding:false
+                    }
+                 case types.Update_data_Failure:
+                    return{
+                        ...state,
+                        Error:true,
+                        laoding:false
+                    }                
 
             default:
                 return state

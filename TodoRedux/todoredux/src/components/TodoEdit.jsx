@@ -34,7 +34,7 @@ export const TodoEdit=()=>{
   console.log(mobile)
   const dispatch=useDispatch()
   useEffect(()=>{
-      axios.get(`http://localhost:8080/data/${id}`)
+      axios.get(`https://my-json-server-u6.herokuapp.com/cities/${id}`)
       .then((res)=>{
         setfirst_name(res.data.first_name);
         setlast_name(res.data.last_name);

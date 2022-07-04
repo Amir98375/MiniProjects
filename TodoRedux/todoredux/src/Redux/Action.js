@@ -24,7 +24,7 @@ const fetchdataFailure=(payload)=>{
 
 export const fetchData=(payload)=>(dispatch)=>{
      dispatch(fetchdataRequest())
-     axios.get(`http://localhost:8080/data`,{
+     axios.get(`https://my-json-server-u6.herokuapp.com/cities`,{
         params:{
             ...payload
         }
@@ -57,7 +57,7 @@ const fetchdeleteRequest=(payload)=>{
 
  export const deleteData=(payload)=>(dispatch)=>{
     dispatch(fetchdataRequest())
-    axios.delete(`http://localhost:8080/data/${payload}`)
+    axios.delete(`https://my-json-server-u6.herokuapp.com/cities/${payload}`)
     .then((res)=>{
         dispatch(fetchdeleteSuccess())
         dispatch(fetchData())
@@ -95,7 +95,7 @@ const AddDataRequest=(payload)=>{
  
  export const AddData=(payload)=>(dispatch)=>{
     dispatch(UpdateDataRequest)
-    axios.post(`http://localhost:8080/data`,payload)
+    axios.post(`https://my-json-server-u6.herokuapp.com/cities`,payload)
     .then((res)=>{
         dispatch(AddDataSuccess())
         dispatch(fetchData())
@@ -132,7 +132,7 @@ const UpdateDataRequest=(payload)=>{
 export const updateteData=(payload,id)=>(dispatch)=>{
     console.log('actions',payload,id)
     dispatch(UpdateDataRequest())
-    axios.put(`http://localhost:8080/data/${id}`,{...payload})
+    axios.put(`https://my-json-server-u6.herokuapp.com/cities/${id}`,{...payload})
     .then((res)=>{
         dispatch(UpdateDataSuccess())
         dispatch(fetchData())

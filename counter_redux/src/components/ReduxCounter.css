@@ -1,0 +1,23 @@
+.divclass{
+    margin-left: 35%;
+}
+.heading{
+    font-size: xx-large;
+    color: red;
+    margin-left: 17%;
+}
+.increase{
+    font-size: xx-large;
+    background-color: teal;
+    color:white;
+    border-radius: 30px;
+    width: 200px;
+}
+.decrease{
+    font-size: xx-large;
+    background-color: teal;
+    color:white;
+    width: 200px;
+    margin-left: 3%;
+    border-radius: 30px;
+}
